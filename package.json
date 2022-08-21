@@ -1,0 +1,19 @@
+{
+  "name": "eleventydevsheaven",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "dev": "npx eleventy --serve"
+  },
+  "keywords": [],
+  "author": "Thomas und Axel",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^13.0.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2"
+  }
+}
