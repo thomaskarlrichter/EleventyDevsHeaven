@@ -1,6 +1,6 @@
 { pkgs }: {
     deps = [
-        pkgs.cowsay
+        pkgs.vim.out
         pkgs.nodejs-16_x   
     ];
 }
