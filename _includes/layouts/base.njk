@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head> 
+     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css' | url }}">
+     <title>{{ title or metadata.title }}</title>
+     <meta name="description" content="{{ description or metadata.description }}"> 
+  </head>
+  <body>
+    <div>{{ content | safe }}</div>
+  </body>
+</html>

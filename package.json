@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": ".eleventy.js",
   "scripts": {
-    "dev": "npx eleventy --serve"
+    "dev": "npx @11ty/eleventy --serve"
   },
   "keywords": [],
   "author": "Thomas und Axel",
