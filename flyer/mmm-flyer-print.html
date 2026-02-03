@@ -95,9 +95,10 @@
   }
   .mod-card h3 { font-size: 11px; color: #D47100; margin-bottom: 2px; }
   .mod-card .sub { font-size: 8px; font-style: italic; color: #666; margin-bottom: 2px; }
-  .mod-card h4 { font-size: 9px; margin-top: 2px; margin-bottom: 1px; }
-  .mod-card ul { font-size: 8px; }
-  .mod-card li { margin-bottom: 0.5px; }
+  .mod-card h4 { font-size: 8px; margin-top: 2px; margin-bottom: 1px; font-weight: 700; }
+  .mod-card .goal { font-size: 7px; margin-bottom: 2px; color: #444; }
+  .mod-card ul { font-size: 7px; }
+  .mod-card li { margin-bottom: 0px; }
 
   /* ── Module Overview Images ── */
   .mod-img-row { display: flex; gap: 2mm; margin: 4px 0; }
@@ -135,10 +136,14 @@
   }
 
   /* ── About Photo ── */
-  .about-photo {
-    width: 34mm; height: 34mm; object-fit: cover;
+  .about-photo-wrap {
+    width: 34mm; height: 34mm;
     border-radius: 50%; float: left; margin-right: 3mm; margin-bottom: 1mm;
     border: 2px solid #F7931A;
+    overflow: hidden;
+  }
+  .about-photo-wrap img {
+    width: 100%; height: 100%; display: block;
   }
 
   /* ── Signature ── */
@@ -275,37 +280,49 @@
     <div class="mod-card">
       <span class="tag">Modul 1</span>
       <h3>Deine Money Story &amp; Identität</h3>
-      <div class="sub">Glaubenssatzarbeit, innere Blockaden, Identität als Money Queen</div>
+      <div class="sub">Glaubenssatzarbeit, innere Blockaden, Identität als Money Queen, Geld Vision Board</div>
+      <h4>Ziel:</h4>
+      <p class="goal">Du verstehst deine persönliche Geldgeschichte und löst dysfunktionale Glaubenssätze. Du legst die Basis für deine neue Financial Identity als selbstbestimmte Frau.</p>
       <h4>Inhalte:</h4>
       <ul>
         <li>Die eigene Money Story entschlüsseln</li>
         <li>Glaubenssatzanalyse &amp; Neuformulierung</li>
         <li>Identitätsarbeit: Wer bin ich als Money Queen?</li>
-        <li>Geld Vision Board &amp; Fülle Mindset</li>
+        <li>Dein persönliches Geld Vision Board</li>
+        <li>Fülle Mindset vs. Mangel Mindset</li>
+        <li>Erfolgsroutinen für Money Queens</li>
       </ul>
     </div>
 
     <div class="mod-card">
       <span class="tag">Modul 2</span>
       <h3>Financial Empowerment Basics</h3>
-      <div class="sub">Finanzielle Bildung, Geldsysteme &amp; Vermögensaufbau</div>
+      <div class="sub">Finanzielle Bildung, Verständnis von Geldsystemen &amp; Vermögensaufbau</div>
+      <h4>Ziel:</h4>
+      <p class="goal">Du baust dir eine solide, verständliche finanzielle Grundbildung auf und verstehst, wie du ein resilientes Finanzfundament aufbauen kannst.</p>
       <h4>Inhalte:</h4>
       <ul>
         <li>Wie Geld funktioniert – Basics der Finanzwelt</li>
         <li>Einführung in den Vermögensaufbau</li>
-        <li>Ist-Analyse &amp; finanzielle Ziele</li>
+        <li>Ist-Analyse deiner finanziellen Situation</li>
+        <li>Finanzielle Ziele &amp; Strategien</li>
       </ul>
     </div>
 
     <div class="mod-card">
       <span class="tag">Modul 3</span>
       <h3>Bitcoin Deep Dive</h3>
-      <div class="sub">Verständnis, Sicherheit, Anwendung</div>
+      <div class="sub">Verständnis, Sicherheit, Anwendung – dein Einstieg in Bitcoin</div>
+      <h4>Ziel:</h4>
+      <p class="goal">Du gewinnst ein tiefes, souveränes Verständnis von Bitcoin – ohne Technik-Overload, dafür praxisnah, sicherheitsorientiert und in deinem Tempo.</p>
       <h4>Inhalte:</h4>
       <ul>
-        <li>Was ist Bitcoin – und was macht ihn besonders?</li>
-        <li>Bitcoin sicher kaufen &amp; verwahren</li>
-        <li>Strategien, Risikomanagement &amp; Roadmap</li>
+        <li>Was ist Bitcoin – und was macht ihn so besonders?</li>
+        <li>Die Technik hinter Bitcoin – einfach erklärt</li>
+        <li>Bitcoin sicher kaufen &amp; verwahren (Wallets, Sicherheit)</li>
+        <li>Strategien &amp; Risikomanagement</li>
+        <li>Your Bitcoin &amp; Investment Roadmap</li>
+        <li>Integration &amp; Abschluss – dein finaler Money Mastery Plan</li>
       </ul>
     </div>
   </div>
@@ -317,7 +334,9 @@
 <div class="page bg-cream">
   <div class="page-inner">
     <div class="clearfix">
-      <img class="about-photo" src="../Foto-gelbes-kleid-mit-hintergrund.png" alt="Evelyn Brock">
+      <div class="about-photo-wrap">
+        <img src="evelyn-square.png" alt="Evelyn Brock">
+      </div>
       <h2 class="section-heading" style="font-size:13px;">Mein Name ist<br>Evelyn Brock</h2>
       <p class="body-text" style="font-size:10px;">Mit fast 30-jähriger Erfahrung als <strong>Betriebswirtin und Supervisorin</strong> berate ich Gründerinnen zu Money Mindset Fragen.</p>
     </div>
