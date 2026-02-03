@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Money Mind Mastery – Flyer DIN Lang</title>
+<style>
+  /* ── Page Setup: DIN Lang 105mm × 210mm ── */
+  @page { size: 105mm 210mm; margin: 0; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 9px; }
+  body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #222; line-height: 1.4;
+    width: 105mm; margin: 0;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  ul { padding-left: 1.2em; margin: 0; }
+  li { margin-bottom: 0.2em; font-size: 8.5px; }
+  h1, h2, h3, h4 { line-height: 1.2; }
+  p { margin-bottom: 0.4em; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Each page is a fixed-size div ── */
+  .page {
+    width: 105mm; height: 210mm;
+    padding: 6mm;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ── Page Backgrounds ── */
+  .bg-dark {
+    background: linear-gradient(160deg, #1a1a2e 0%, #2d1b4e 100%);
+    color: #fff;
+  }
+  .bg-purple {
+    background: linear-gradient(135deg, #3a0d5e 0%, #1a1a2e 100%);
+    color: #fff;
+  }
+  .bg-white { background: #ffffff; color: #222; }
+  .bg-cream { background: #faf5ff; color: #222; }
+  .bg-warm { background: #fff9f0; color: #222; }
+
+  /* ── Typography ── */
+  .page-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+  .page-subtitle { font-size: 10px; font-weight: 400; margin-bottom: 6px; }
+  .section-heading { font-size: 12px; font-weight: 700; margin-bottom: 4px; color: #3a0d5e; }
+  .section-heading-light { font-size: 12px; font-weight: 700; margin-bottom: 4px; color: #fd9800; }
+  .body-text { font-size: 8.5px; margin-bottom: 4px; }
+  .small-text { font-size: 7.5px; color: #666; }
+
+  /* ── CTA Link (replaces buttons) ── */
+  .cta-link {
+    display: inline-block; padding: 4px 12px;
+    background: #fd9800; color: #000; font-weight: 700; font-size: 9px;
+    border-radius: 20px; text-align: center; margin-top: 4px;
+  }
+
+  /* ── Chips ── */
+  .chip {
+    display: inline-block; background: #fd9800; color: #000;
+    font-weight: 700; font-size: 8px; border-radius: 20px;
+    padding: 2px 8px; margin: 2px 0;
+  }
+
+  /* ── Module Cards ── */
+  .mod-card {
+    background: #fff; border-radius: 6px; padding: 5px 6px;
+    margin-bottom: 4px; border-left: 3px solid #fd9800;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .mod-card .tag {
+    display: inline-block; background: #3a0d5e; color: #fff;
+    font-size: 7px; font-weight: 700; padding: 1px 5px;
+    border-radius: 10px; margin-bottom: 2px;
+  }
+  .mod-card h3 { font-size: 10px; color: #fd9800; margin-bottom: 2px; }
+  .mod-card .sub { font-size: 7.5px; font-style: italic; color: #555; margin-bottom: 3px; }
+  .mod-card h4 { font-size: 8.5px; margin-top: 3px; margin-bottom: 1px; }
+  .mod-card ul { font-size: 7.5px; }
+  .mod-card li { margin-bottom: 1px; }
+
+  /* ── Module Overview Images ── */
+  .mod-img-row { display: flex; gap: 3mm; margin: 4px 0; }
+  .mod-img-item { flex: 1; text-align: center; }
+  .mod-img-item img { border-radius: 6px; width: 100%; }
+  .mod-img-item h4 { font-size: 9px; color: #fd9800; margin-top: 2px; }
+  .mod-img-item p { font-size: 7px; color: #ddd; }
+
+  /* ── Testimonial ── */
+  .testimonial {
+    background: #fff; border-radius: 6px; padding: 4px 6px;
+    margin-bottom: 4px; border-left: 2px solid #fd9800;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .testimonial .quote { font-size: 7.5px; font-style: italic; margin-bottom: 2px; }
+  .testimonial .author { font-size: 7.5px; font-weight: 700; }
+  .testimonial .stars { color: #fd9800; font-size: 7px; }
+
+  /* ── Features ── */
+  .feat-grid { display: flex; flex-wrap: wrap; gap: 3px; margin: 4px 0; }
+  .feat-item {
+    width: calc(50% - 2px); text-align: center; padding: 4px 3px;
+    background: #fff; border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .feat-item .icon { font-size: 14px; margin-bottom: 1px; }
+  .feat-item h4 { font-size: 8px; margin-bottom: 1px; }
+  .feat-item p { font-size: 7px; color: #666; }
+
+  /* ── Highlight Box ── */
+  .highlight {
+    background: #fff3e0; border-left: 3px solid #fd9800;
+    padding: 4px 6px; border-radius: 0 4px 4px 0;
+    margin: 4px 0; font-weight: 600; font-size: 8px;
+  }
+
+  /* ── About Photo ── */
+  .about-photo {
+    width: 35mm; height: 35mm; object-fit: cover;
+    border-radius: 50%; float: left; margin-right: 4mm; margin-bottom: 2mm;
+  }
+
+  /* ── Signature ── */
+  .signature { width: 25mm; margin-top: 2px; }
+
+  /* ── Logo ── */
+  .logo { height: 10mm; margin: 0 auto; }
+  .logo-sm { height: 7mm; }
+
+  /* ── Utilities ── */
+  .center { text-align: center; }
+  .clearfix::after { content: ""; display: table; clear: both; }
+  .spacer { height: 3mm; }
+  .spacer-sm { height: 1.5mm; }
+  .divider { border: none; border-top: 0.5px solid rgba(255,255,255,0.2); margin: 4px 0; }
+  .divider-dark { border-top-color: #eee; }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 1 – COVER                             ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-purple center">
+  <div class="spacer"></div>
+  <img class="logo" src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin" style="margin:0 auto;">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <h1 class="page-title" style="font-size:18px; color:#fff;">Money Mind<br>Mastery</h1>
+  <div class="spacer-sm"></div>
+  <p class="page-subtitle" style="color:#fdf2ff; font-size:10px;">Dein 3-monatiges Mentoring für ein<br>entspanntes, souveränes Money Life!</p>
+
+  <div class="spacer"></div>
+
+  <div style="margin: 0 auto;">
+    <div class="chip">Finanzwissen aufbauen</div><br>
+    <div class="chip">Money Mindset stärken</div><br>
+    <div class="chip">Bitcoin sicher verstehen</div>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <img src="../Bild-Modul-1-Landingpage-MMM.jpg" alt="Money Mind Mastery" style="width:55mm; border-radius:10px; margin:0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.3);">
+
+  <div class="spacer"></div>
+  <p style="font-size:8px; color:#ccc;">madame-bitcoin.de/money-mind-mastery</p>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 2 – PROBLEM & VALUE PROPOSITION       ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-white">
+  <h2 class="section-heading" style="font-size:11px;">Verändere deine Beziehung zu Geld</h2>
+  <p class="body-text">Baue echtes Finanzwissen auf und werde sicher im Umgang mit Bitcoin.</p>
+
+  <ul class="body-text">
+    <li>Verstehe endlich, wie Geld &amp; Vermögensaufbau funktionieren</li>
+    <li>Werde zur selbstbewussten „Money Queen"</li>
+    <li>Erhalte praxisnahes &amp; sicheres Bitcoin Wissen</li>
+  </ul>
+
+  <hr class="divider-dark">
+
+  <h3 class="section-heading" style="font-size:10px;">Geld stresst dich mehr, als dir lieb ist?</h3>
+  <p class="body-text">Vielleicht erkennst du dich wieder:</p>
+  <ul class="body-text">
+    <li>Du <strong>denkst viel über Geld nach</strong>, fühlst dich aber unsicher.</li>
+    <li><strong>Alte Glaubenssätze</strong> („Das ist alles zu kompliziert") bremsen dich.</li>
+    <li>Du hast geerbt oder eine Gehaltserhöhung erhalten und fragst Dich, wie Du <strong>sinnvoll investieren</strong> kannst.</li>
+    <li>Dir fehlt ein <strong>klarer, weiblich geführter Weg</strong>.</li>
+    <li>Du hast von Bitcoin gehört aber <strong>zu viel Angst einzusteigen</strong>.</li>
+  </ul>
+
+  <div class="highlight">Wenn dein Nervensystem bei „Finanzen" die Notbremse zieht – bist du hier genau richtig.</div>
+
+  <hr class="divider-dark">
+
+  <p class="body-text"><strong>Money Mind Mastery</strong> ist ein 3-monatiges Online-Mentoring für Frauen, das Money Mindset, finanzielle Bildung und Bitcoin-Knowhow verbindet.</p>
+  <p class="body-text">Statt trockener Theorie gibt es:</p>
+  <ul class="body-text">
+    <li>tief gehende Innenarbeit</li>
+    <li>verständlich erklärte Finanz- und Bitcoin-Inhalte</li>
+    <li>konkrete Umsetzungsschritte</li>
+    <li>eine stärkende Community aus Frauen</li>
+  </ul>
+  <p class="body-text" style="font-weight:700;">Mehr Klarheit, mehr Sicherheit, mehr Freiheit.</p>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 3 – 3 MODULE + IMAGES                 ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-purple">
+  <h2 class="section-heading-light" style="font-size:12px;">Die Money Mind Mastery</h2>
+  <p style="font-size:9px; color:#ddd; margin-bottom:5px;">Dein Weg in 3 Monaten mit 3 Modulen</p>
+
+  <div class="mod-img-row">
+    <div class="mod-img-item">
+      <img src="../Bild-Modul-1-Landingpage-MMM.jpg" alt="Modul 1">
+      <h4>Modul 1</h4>
+      <p>Money Story &amp; Identität</p>
+    </div>
+    <div class="mod-img-item">
+      <img src="../Bild-Modul-2-Landingpage-MMM.jpg" alt="Modul 2">
+      <h4>Modul 2</h4>
+      <p>Financial Empowerment</p>
+    </div>
+    <div class="mod-img-item">
+      <img src="../Bild-Modul-3-Landingpage-MMM.jpg" alt="Modul 3">
+      <h4>Modul 3</h4>
+      <p>Bitcoin Deep Dive</p>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- Modul 1 Detail -->
+  <div class="mod-card">
+    <span class="tag">Modul 1</span>
+    <h3>Deine Money Story &amp; Identität</h3>
+    <div class="sub">Glaubenssatzarbeit, innere Blockaden, Identität als Money Queen</div>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Die eigene Money Story entschlüsseln</li>
+      <li>Glaubenssatzanalyse &amp; Neuformulierung</li>
+      <li>Identitätsarbeit: Wer bin ich als Money Queen?</li>
+      <li>Geld Vision Board &amp; Fülle Mindset</li>
+    </ul>
+  </div>
+
+  <!-- Modul 2 Detail -->
+  <div class="mod-card">
+    <span class="tag">Modul 2</span>
+    <h3>Financial Empowerment Basics</h3>
+    <div class="sub">Finanzielle Bildung, Geldsysteme &amp; Vermögensaufbau</div>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Wie Geld funktioniert – Basics der Finanzwelt</li>
+      <li>Einführung in den Vermögensaufbau</li>
+      <li>Ist-Analyse &amp; finanzielle Ziele</li>
+    </ul>
+  </div>
+
+  <!-- Modul 3 Detail -->
+  <div class="mod-card">
+    <span class="tag">Modul 3</span>
+    <h3>Bitcoin Deep Dive</h3>
+    <div class="sub">Verständnis, Sicherheit, Anwendung</div>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Was ist Bitcoin – und was macht ihn besonders?</li>
+      <li>Bitcoin sicher kaufen &amp; verwahren</li>
+      <li>Strategien, Risikomanagement &amp; Roadmap</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 4 – ABOUT EVELYN & RESULTS            ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-cream">
+  <div class="clearfix">
+    <img class="about-photo" src="../Foto-gelbes-kleid-mit-hintergrund.png" alt="Evelyn Brock">
+    <h2 class="section-heading" style="font-size:11px;">Mein Name ist<br>Evelyn Brock</h2>
+    <p class="body-text">Mit fast 30-jähriger Erfahrung als <strong>Betriebswirtin und Supervisorin</strong> berate ich Gründerinnen zu Money Mindset Fragen.</p>
+  </div>
+  <p class="body-text">Ich bin 2016 mit Bitcoin in Berührung gekommen und habe 2019 begonnen zu investieren. Mein Investment habe ich in 5 Jahren vervierfacht. Als <strong>Vorstand des Bitcoin Bundesverband</strong> stärke ich die Position von Frauen.</p>
+  <img class="signature" src="../Unterschrift-2.png" alt="Unterschrift">
+
+  <hr class="divider-dark">
+
+  <h3 class="section-heading" style="font-size:10px;">Was du nach 3 Monaten sagen kannst</h3>
+  <ul class="body-text">
+    <li>Deine <strong>persönliche Money Story verstehen</strong></li>
+    <li><strong>Limitierende Glaubenssätze transformieren</strong></li>
+    <li>Deine <strong>finanzielle Situation klar sehen</strong></li>
+    <li>Wissen, wie Geld &amp; Vermögensaufbau zusammenspielen</li>
+    <li>Verstehen, was Bitcoin ist und <strong>sicher damit umgehen</strong></li>
+    <li>Einen <strong>konkreten Finanz- und Bitcoin-Plan</strong> haben</li>
+  </ul>
+
+  <div class="highlight">Dein Investment wird sich durch Money Mindset und Bitcoin Know-how vielfach auszahlen!</div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 5 – FEATURES & TESTIMONIALS           ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-white">
+  <h3 class="section-heading" style="font-size:10px;">Was enthalten ist</h3>
+
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="icon">💡</div>
+      <h4>Live Sessions</h4>
+      <p>2-wöchentlich, 90 Min</p>
+    </div>
+    <div class="feat-item">
+      <div class="icon">🎥</div>
+      <h4>1:1 Calls</h4>
+      <p>Persönliche Begleitung</p>
+    </div>
+    <div class="feat-item">
+      <div class="icon">📚</div>
+      <h4>Video-Bibliothek</h4>
+      <p>Bis zu 50 Videos</p>
+    </div>
+    <div class="feat-item">
+      <div class="icon">📋</div>
+      <h4>Workbooks</h4>
+      <p>Vertiefung &amp; Integration</p>
+    </div>
+    <div class="feat-item">
+      <div class="icon">📝</div>
+      <h4>Anleitungen</h4>
+      <p>Schritt-für-Schritt</p>
+    </div>
+    <div class="feat-item">
+      <div class="icon">👩‍👩‍👧</div>
+      <h4>Community</h4>
+      <p>Du bist nicht allein</p>
+    </div>
+  </div>
+
+  <hr class="divider-dark">
+
+  <h3 class="section-heading" style="font-size:10px;">Kundinnenstimmen</h3>
+
+  <div class="testimonial">
+    <div class="quote">"Bitcoin ist viel Neues und es erfordert Mut. Dafür danke ich dir. Ohne dich hätte ich diesen Schritt nicht gemacht."</div>
+    <div class="author">Kerstin S. <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">„Die Weiterbildung war sehr inspirierend. Du bist ein gutes Role Model, weil Du lebenserfahren und vertrauenswürdig bist."</div>
+    <div class="author">Christel S. <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">„Sehr gut aufgebaut, sehr informativ und gut verständlich. Ich habe sehr viel mitgenommen, obwohl ich Vorerfahrungen hatte."</div>
+    <div class="author">Eirian S. <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">"Ich bin sehr glücklich, dass ich die Weiterbildung bei Dir gemacht habe. Du machst das so schön und authentisch."</div>
+    <div class="author">Sabine B. <span class="stars">★★★★★</span></div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗ -->
+<!-- ║  PAGE 6 – TARGET, CTA & CLOSING             ║ -->
+<!-- ╚══════════════════════════════════════════════╝ -->
+<div class="page bg-dark center">
+  <div class="spacer-sm"></div>
+  <img class="logo" src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin" style="margin:0 auto;">
+  <div class="spacer"></div>
+
+  <h2 class="section-heading-light" style="font-size:11px;">Für wen ist das Programm?</h2>
+  <div style="text-align:left; padding: 0 3mm;">
+    <ul class="body-text" style="color:#ddd;">
+      <li>Frauen, die <strong>Verantwortung für ihr Geld</strong> übernehmen wollen</li>
+      <li>Frauen, deren <strong>Mindset sie noch limitiert</strong></li>
+      <li>Frauen, die bereit sind, in ihre finanzielle Zukunft zu investieren</li>
+      <li>Frauen, die einen <strong>klaren Weg</strong> und <strong>ehrliche Community</strong> suchen</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <h3 style="font-size:11px; color:#fff; margin-bottom:5px;">Bist du bereit, dein Money Game<br>auf ein neues Level zu heben?</h3>
+  <p class="body-text" style="color:#ccc;">Lass dich 3 Monate lang begleiten, stärken und auf dein nächstes Money Level vorbereiten.</p>
+
+  <div class="spacer"></div>
+
+  <a class="cta-link" style="font-size:10px; padding:6px 16px;" href="https://madame-bitcoin.de/money-mind-mastery/">Zur Anmeldung auf der Landing-Page ★</a>
+
+  <div class="spacer"></div>
+
+  <img src="../Bild-Modul-2-Landingpage-MMM.jpg" alt="Money Mind Mastery" style="width:40mm; border-radius:8px; margin:0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+
+  <div class="spacer"></div>
+
+  <p style="font-size:8px; color:#fd9800; font-weight:700;">madame-bitcoin.de/money-mind-mastery</p>
+  <div class="spacer-sm"></div>
+  <p style="font-size:6.5px; color:#888;">Disclaimer: Meine Programme sind Weiterbildungen und keine Finanzberatung. Ich übernehme keine Haftung für individuell getroffene Finanzentscheidungen.</p>
+  <p style="font-size:6.5px; color:#666; margin-top:3px;">© 2026 Madame Bitcoin – Evelyn Brock</p>
+</div>
+
+</body>
+</html>
