@@ -8,20 +8,20 @@
   @page { size: 105mm 210mm; margin: 0; }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 9px; }
+  html { font-size: 10px; }
   body {
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: #222; line-height: 1.4;
+    color: #222; line-height: 1.45;
     width: 105mm; margin: 0;
   }
   img { max-width: 100%; height: auto; display: block; }
   ul { padding-left: 1.2em; margin: 0; }
-  li { margin-bottom: 0.15em; font-size: 8.5px; }
+  li { margin-bottom: 0.2em; font-size: 9.5px; }
   h1, h2, h3, h4 { line-height: 1.2; }
-  p { margin-bottom: 0.35em; }
+  p { margin-bottom: 0.4em; }
   a { color: inherit; text-decoration: none; }
 
-  /* ── Each page: FULL BLEED, no padding ── */
+  /* ── Each page: FULL BLEED ── */
   .page {
     width: 105mm; height: 210mm;
     page-break-after: always;
@@ -33,7 +33,6 @@
   }
   .page:last-child { page-break-after: auto; }
 
-  /* Inner content area with small consistent padding */
   .page-inner {
     flex: 1;
     display: flex;
@@ -42,133 +41,123 @@
     padding: 4mm 5mm;
   }
 
-  /* For cover/cta pages: center content */
-  .page-inner-center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4mm 5mm;
-  }
+  /* ── COLOR SCHEME ──
+     Primary:   Bitcoin Orange  #F7931A
+     Dark BG:   Deep Orange     #B35C00 / #8B4513
+     Accent:    Warm Yellow     #FFD54F (buttons)
+     Text dark: #1a1a1a
+  ── */
 
-  /* ── Full-bleed background images/overlays ── */
-  .page-bg {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
-  }
-
-  /* ── Page Backgrounds ── */
-  .bg-dark {
-    background: linear-gradient(160deg, #1a1a2e 0%, #2d1b4e 100%);
+  .bg-bitcoin {
+    background: linear-gradient(135deg, #F7931A 0%, #E8820A 50%, #D47100 100%);
     color: #fff;
   }
-  .bg-purple {
-    background: linear-gradient(135deg, #3a0d5e 0%, #1a1a2e 100%);
+  .bg-bitcoin-deep {
+    background: linear-gradient(160deg, #C46B00 0%, #8B4000 100%);
     color: #fff;
   }
   .bg-white { background: #ffffff; color: #222; }
-  .bg-cream { background: #faf5ff; color: #222; }
+  .bg-cream { background: #FFF8EE; color: #222; }
 
   /* ── Typography ── */
-  .page-title { font-size: 20px; font-weight: 800; margin-bottom: 3px; }
-  .page-subtitle { font-size: 10.5px; font-weight: 400; margin-bottom: 4px; }
-  .section-heading { font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: #3a0d5e; }
-  .section-heading-light { font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: #fd9800; }
-  .body-text { font-size: 8.5px; margin-bottom: 3px; }
-  .small-text { font-size: 7.5px; color: #666; }
+  .page-title { font-size: 24px; font-weight: 800; margin-bottom: 3px; }
+  .page-subtitle { font-size: 12px; font-weight: 400; margin-bottom: 4px; }
+  .section-heading { font-size: 14px; font-weight: 700; margin-bottom: 5px; color: #D47100; }
+  .section-heading-light { font-size: 14px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+  .body-text { font-size: 9.5px; margin-bottom: 4px; }
+  .small-text { font-size: 8.5px; color: #666; }
 
-  /* ── CTA Link ── */
+  /* ── CTA Link: lighter yellow ── */
   .cta-link {
-    display: inline-block; padding: 5px 14px;
-    background: #fd9800; color: #000; font-weight: 700; font-size: 9.5px;
+    display: inline-block; padding: 6px 16px;
+    background: #FFD54F; color: #1a1a1a; font-weight: 700; font-size: 10.5px;
     border-radius: 20px; text-align: center; margin-top: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
 
-  /* ── Chips ── */
+  /* ── Chips: yellow ── */
   .chip {
-    display: inline-block; background: #fd9800; color: #000;
-    font-weight: 700; font-size: 8.5px; border-radius: 20px;
-    padding: 3px 10px; margin: 2px 0;
+    display: inline-block; background: #FFD54F; color: #1a1a1a;
+    font-weight: 700; font-size: 9.5px; border-radius: 20px;
+    padding: 3px 11px; margin: 2px 0;
   }
 
   /* ── Module Cards ── */
   .mod-card {
-    background: #fff; border-radius: 6px; padding: 4px 6px;
-    margin-bottom: 3px; border-left: 3px solid #fd9800;
+    background: #fff; border-radius: 6px; padding: 5px 7px;
+    margin-bottom: 4px; border-left: 3px solid #F7931A;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
   .mod-card .tag {
-    display: inline-block; background: #3a0d5e; color: #fff;
-    font-size: 7px; font-weight: 700; padding: 1px 5px;
+    display: inline-block; background: #F7931A; color: #fff;
+    font-size: 7.5px; font-weight: 700; padding: 1px 6px;
     border-radius: 10px; margin-bottom: 2px;
   }
-  .mod-card h3 { font-size: 10px; color: #fd9800; margin-bottom: 1px; }
-  .mod-card .sub { font-size: 7.5px; font-style: italic; color: #555; margin-bottom: 2px; }
-  .mod-card h4 { font-size: 8px; margin-top: 2px; margin-bottom: 1px; }
-  .mod-card ul { font-size: 7.5px; }
+  .mod-card h3 { font-size: 11px; color: #D47100; margin-bottom: 2px; }
+  .mod-card .sub { font-size: 8px; font-style: italic; color: #666; margin-bottom: 2px; }
+  .mod-card h4 { font-size: 9px; margin-top: 2px; margin-bottom: 1px; }
+  .mod-card ul { font-size: 8px; }
   .mod-card li { margin-bottom: 0.5px; }
 
   /* ── Module Overview Images ── */
-  .mod-img-row { display: flex; gap: 2mm; margin: 3px 0; }
+  .mod-img-row { display: flex; gap: 2mm; margin: 4px 0; }
   .mod-img-item { flex: 1; text-align: center; }
   .mod-img-item img { border-radius: 6px; width: 100%; }
-  .mod-img-item h4 { font-size: 9px; color: #fd9800; margin-top: 2px; }
-  .mod-img-item p { font-size: 7px; color: #ddd; }
+  .mod-img-item h4 { font-size: 10px; color: #fff; margin-top: 2px; }
+  .mod-img-item p { font-size: 8px; color: #FFD54F; }
 
   /* ── Testimonial ── */
   .testimonial {
-    background: #fff; border-radius: 5px; padding: 4px 6px;
-    margin-bottom: 3px; border-left: 2px solid #fd9800;
+    background: #fff; border-radius: 5px; padding: 5px 7px;
+    margin-bottom: 4px; border-left: 3px solid #F7931A;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
-  .testimonial .quote { font-size: 7.5px; font-style: italic; margin-bottom: 1px; }
-  .testimonial .author { font-size: 7.5px; font-weight: 700; }
-  .testimonial .stars { color: #fd9800; font-size: 7px; }
+  .testimonial .quote { font-size: 8.5px; font-style: italic; margin-bottom: 2px; }
+  .testimonial .author { font-size: 8.5px; font-weight: 700; }
+  .testimonial .stars { color: #F7931A; font-size: 8px; }
 
   /* ── Features ── */
-  .feat-grid { display: flex; flex-wrap: wrap; gap: 2px; margin: 3px 0; }
+  .feat-grid { display: flex; flex-wrap: wrap; gap: 3px; margin: 4px 0; }
   .feat-item {
-    width: calc(50% - 1px); text-align: center; padding: 4px 2px;
-    background: #fff; border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    width: calc(50% - 2px); text-align: center; padding: 5px 3px;
+    background: #FFF8EE; border-radius: 5px;
+    border: 1px solid #F7931A22;
   }
-  .feat-item .icon { font-size: 14px; margin-bottom: 1px; }
-  .feat-item h4 { font-size: 8px; margin-bottom: 1px; }
-  .feat-item p { font-size: 6.5px; color: #666; }
+  .feat-item .icon { font-size: 16px; margin-bottom: 2px; }
+  .feat-item h4 { font-size: 9px; margin-bottom: 1px; }
+  .feat-item p { font-size: 7.5px; color: #666; }
 
   /* ── Highlight Box ── */
   .highlight {
-    background: #fff3e0; border-left: 3px solid #fd9800;
-    padding: 4px 6px; border-radius: 0 4px 4px 0;
-    margin: 3px 0; font-weight: 600; font-size: 8px;
+    background: #FFF3E0; border-left: 3px solid #F7931A;
+    padding: 5px 7px; border-radius: 0 4px 4px 0;
+    margin: 4px 0; font-weight: 600; font-size: 9px;
   }
 
   /* ── About Photo ── */
   .about-photo {
-    width: 32mm; height: 32mm; object-fit: cover;
+    width: 34mm; height: 34mm; object-fit: cover;
     border-radius: 50%; float: left; margin-right: 3mm; margin-bottom: 1mm;
+    border: 2px solid #F7931A;
   }
 
   /* ── Signature ── */
-  .signature { width: 22mm; margin-top: 1px; }
+  .signature { width: 24mm; margin-top: 2px; }
 
   /* ── Logo ── */
   .logo { height: 10mm; }
-  .logo-sm { height: 7mm; }
 
   /* ── QR Code ── */
-  .qr-code { width: 25mm; height: 25mm; }
+  .qr-code { width: 26mm; height: 26mm; }
 
   /* ── Utilities ── */
   .center { text-align: center; }
   .clearfix::after { content: ""; display: table; clear: both; }
   .spacer { height: 2mm; }
   .spacer-sm { height: 1mm; }
-  .divider { border: none; border-top: 0.5px solid rgba(255,255,255,0.2); margin: 3px 0; }
-  .divider-dark { border: none; border-top: 0.5px solid #eee; margin: 3px 0; }
+  .divider { border: none; border-top: 0.5px solid rgba(255,255,255,0.3); margin: 4px 0; }
+  .divider-dark { border: none; border-top: 0.5px solid #F7931A44; margin: 4px 0; }
 
-  /* ── Cover image: fill remaining space ── */
   .cover-img-wrap {
     flex: 1; display: flex; align-items: center; justify-content: center;
     margin-top: 2mm;
@@ -177,27 +166,22 @@
     max-height: 100%; max-width: 70mm; border-radius: 10px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
   }
-
-  /* ── Full-width section image (no border-radius for bleed) ── */
-  .bleed-img {
-    width: 105mm; margin-left: -5mm; margin-right: -5mm;
-  }
 </style>
 </head>
 <body>
 
 <!-- ╔══════════════════════════════════════════════╗ -->
-<!-- ║  PAGE 1 – COVER (full bleed)                ║ -->
+<!-- ║  PAGE 1 – COVER                             ║ -->
 <!-- ╚══════════════════════════════════════════════╝ -->
-<div class="page bg-purple">
+<div class="page bg-bitcoin">
   <div class="page-inner" style="align-items:center; text-align:center;">
     <div>
       <img class="logo" src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin" style="margin:0 auto;">
     </div>
 
     <div>
-      <h1 class="page-title" style="font-size:22px; color:#fff;">Money Mind<br>Mastery</h1>
-      <p class="page-subtitle" style="color:#fdf2ff; font-size:11px;">Dein 3-monatiges Mentoring für ein<br>entspanntes, souveränes Money Life!</p>
+      <h1 class="page-title" style="color:#fff;">Money Mind<br>Mastery</h1>
+      <p class="page-subtitle" style="color:#fff8e0; font-size:12px;">Dein 3-monatiges Mentoring für ein<br>entspanntes, souveränes Money Life!</p>
     </div>
 
     <div>
@@ -210,7 +194,7 @@
       <img src="../Bild-Modul-1-Landingpage-MMM.jpg" alt="Money Mind Mastery">
     </div>
 
-    <p style="font-size:8px; color:#ccc;">madame-bitcoin.de/money-mind-mastery</p>
+    <p style="font-size:8.5px; color:#fff8e0;">madame-bitcoin.de/money-mind-mastery</p>
   </div>
 </div>
 
@@ -220,19 +204,19 @@
 <div class="page bg-white">
   <div class="page-inner">
     <div>
-      <h2 class="section-heading" style="font-size:12px;">Verändere deine Beziehung zu Geld</h2>
-      <p class="body-text">Baue echtes Finanzwissen auf und werde sicher im Umgang mit Bitcoin.</p>
-      <ul class="body-text">
-        <li>Verstehe endlich, wie Geld &amp; Vermögensaufbau funktionieren</li>
-        <li>Werde zur selbstbewussten „Money Queen"</li>
-        <li>Erhalte praxisnahes &amp; sicheres Bitcoin Wissen</li>
+      <h2 class="section-heading" style="font-size:13.5px;">Verändere deine Beziehung zu Geld</h2>
+      <p class="body-text" style="font-size:10px;">Baue echtes Finanzwissen auf und werde sicher im Umgang mit Bitcoin.</p>
+      <ul class="body-text" style="font-size:10px;">
+        <li style="font-size:10px;">Verstehe endlich, wie Geld &amp; Vermögensaufbau funktionieren</li>
+        <li style="font-size:10px;">Werde zur selbstbewussten „Money Queen"</li>
+        <li style="font-size:10px;">Erhalte praxisnahes &amp; sicheres Bitcoin Wissen</li>
       </ul>
     </div>
 
     <hr class="divider-dark">
 
     <div>
-      <h3 class="section-heading" style="font-size:10.5px;">Geld stresst dich mehr, als dir lieb ist?</h3>
+      <h3 class="section-heading" style="font-size:12px;">Geld stresst dich mehr, als dir lieb ist?</h3>
       <p class="body-text">Vielleicht erkennst du dich wieder:</p>
       <ul class="body-text">
         <li>Du <strong>denkst viel über Geld nach</strong>, fühlst dich aber unsicher.</li>
@@ -247,15 +231,15 @@
     <hr class="divider-dark">
 
     <div>
-      <p class="body-text"><strong>Money Mind Mastery</strong> ist ein 3-monatiges Online-Mentoring für Frauen, das Money Mindset, finanzielle Bildung und Bitcoin-Knowhow verbindet.</p>
-      <p class="body-text">Statt trockener Theorie gibt es:</p>
-      <ul class="body-text">
-        <li>tief gehende Innenarbeit</li>
-        <li>verständlich erklärte Finanz- und Bitcoin-Inhalte</li>
-        <li>konkrete Umsetzungsschritte</li>
-        <li>eine stärkende Community aus Frauen</li>
+      <p class="body-text" style="font-size:10px;"><strong>Money Mind Mastery</strong> ist ein 3-monatiges Online-Mentoring für Frauen, das Money Mindset, finanzielle Bildung und Bitcoin-Knowhow verbindet.</p>
+      <p class="body-text" style="font-size:10px;">Statt trockener Theorie gibt es:</p>
+      <ul class="body-text" style="font-size:10px;">
+        <li style="font-size:10px;">tief gehende Innenarbeit</li>
+        <li style="font-size:10px;">verständlich erklärte Finanz- und Bitcoin-Inhalte</li>
+        <li style="font-size:10px;">konkrete Umsetzungsschritte</li>
+        <li style="font-size:10px;">eine stärkende Community aus Frauen</li>
       </ul>
-      <p class="body-text" style="font-weight:700;">Mehr Klarheit, mehr Sicherheit, mehr Freiheit.</p>
+      <p class="body-text" style="font-weight:700; font-size:10.5px;">Mehr Klarheit, mehr Sicherheit, mehr Freiheit.</p>
     </div>
   </div>
 </div>
@@ -263,11 +247,11 @@
 <!-- ╔══════════════════════════════════════════════╗ -->
 <!-- ║  PAGE 3 – 3 MODULE + IMAGES                 ║ -->
 <!-- ╚══════════════════════════════════════════════╝ -->
-<div class="page bg-purple">
+<div class="page bg-bitcoin-deep">
   <div class="page-inner">
     <div>
-      <h2 class="section-heading-light" style="font-size:13px;">Die Money Mind Mastery</h2>
-      <p style="font-size:9.5px; color:#ddd; margin-bottom:3px;">Dein Weg in 3 Monaten mit 3 Modulen</p>
+      <h2 class="section-heading-light" style="font-size:15px;">Die Money Mind Mastery</h2>
+      <p style="font-size:10.5px; color:#FFD54F; margin-bottom:3px;">Dein Weg in 3 Monaten mit 3 Modulen</p>
     </div>
 
     <div class="mod-img-row">
@@ -334,30 +318,30 @@
   <div class="page-inner">
     <div class="clearfix">
       <img class="about-photo" src="../Foto-gelbes-kleid-mit-hintergrund.png" alt="Evelyn Brock">
-      <h2 class="section-heading" style="font-size:11.5px;">Mein Name ist<br>Evelyn Brock</h2>
-      <p class="body-text">Mit fast 30-jähriger Erfahrung als <strong>Betriebswirtin und Supervisorin</strong> berate ich Gründerinnen zu Money Mindset Fragen.</p>
+      <h2 class="section-heading" style="font-size:13px;">Mein Name ist<br>Evelyn Brock</h2>
+      <p class="body-text" style="font-size:10px;">Mit fast 30-jähriger Erfahrung als <strong>Betriebswirtin und Supervisorin</strong> berate ich Gründerinnen zu Money Mindset Fragen.</p>
     </div>
 
     <div>
-      <p class="body-text">Ich bin 2016 mit Bitcoin in Berührung gekommen und habe 2019 begonnen zu investieren. Mein Investment habe ich in 5 Jahren vervierfacht. Als <strong>Vorstand des Bitcoin Bundesverband</strong> stärke ich die Position von Frauen.</p>
+      <p class="body-text" style="font-size:10px;">Ich bin 2016 mit Bitcoin in Berührung gekommen und habe 2019 begonnen zu investieren. Mein Investment habe ich in 5 Jahren vervierfacht. Als <strong>Vorstand des Bitcoin Bundesverband</strong> stärke ich die Position von Frauen.</p>
       <img class="signature" src="../Unterschrift-2.png" alt="Unterschrift">
     </div>
 
     <hr class="divider-dark">
 
     <div>
-      <h3 class="section-heading" style="font-size:10.5px;">Was du nach 3 Monaten sagen kannst</h3>
-      <ul class="body-text">
-        <li>Deine <strong>persönliche Money Story verstehen</strong></li>
-        <li><strong>Limitierende Glaubenssätze transformieren</strong></li>
-        <li>Deine <strong>finanzielle Situation klar sehen</strong></li>
-        <li>Wissen, wie Geld &amp; Vermögensaufbau zusammenspielen</li>
-        <li>Verstehen, was Bitcoin ist und <strong>sicher damit umgehen</strong></li>
-        <li>Einen <strong>konkreten Finanz- und Bitcoin-Plan</strong> haben</li>
+      <h3 class="section-heading" style="font-size:12px;">Was du nach 3 Monaten sagen kannst</h3>
+      <ul class="body-text" style="font-size:10px;">
+        <li style="font-size:10px;">Deine <strong>persönliche Money Story verstehen</strong></li>
+        <li style="font-size:10px;"><strong>Limitierende Glaubenssätze transformieren</strong></li>
+        <li style="font-size:10px;">Deine <strong>finanzielle Situation klar sehen</strong></li>
+        <li style="font-size:10px;">Wissen, wie Geld &amp; Vermögensaufbau zusammenspielen</li>
+        <li style="font-size:10px;">Verstehen, was Bitcoin ist und <strong>sicher damit umgehen</strong></li>
+        <li style="font-size:10px;">Einen <strong>konkreten Finanz- und Bitcoin-Plan</strong> haben</li>
       </ul>
     </div>
 
-    <div class="highlight">Dein Investment wird sich durch Money Mindset und Bitcoin Know-how vielfach auszahlen!</div>
+    <div class="highlight" style="font-size:9.5px;">Dein Investment wird sich durch Money Mindset und Bitcoin Know-how vielfach auszahlen!</div>
   </div>
 </div>
 
@@ -367,7 +351,7 @@
 <div class="page bg-white">
   <div class="page-inner">
     <div>
-      <h3 class="section-heading" style="font-size:11px;">Was in der Money Mind Mastery enthalten ist</h3>
+      <h3 class="section-heading" style="font-size:13px;">Was in der Money Mind Mastery enthalten ist</h3>
       <div class="feat-grid">
         <div class="feat-item">
           <div class="icon">💡</div>
@@ -405,7 +389,7 @@
     <hr class="divider-dark">
 
     <div>
-      <h3 class="section-heading" style="font-size:11px;">Kundinnenstimmen</h3>
+      <h3 class="section-heading" style="font-size:13px;">Kundinnenstimmen</h3>
 
       <div class="testimonial">
         <div class="quote">"Bitcoin ist viel Neues und es erfordert Mut. Dafür danke ich dir. Ohne dich hätte ich diesen Schritt nicht gemacht."</div>
@@ -433,20 +417,20 @@
 <!-- ╔══════════════════════════════════════════════╗ -->
 <!-- ║  PAGE 6 – TARGET, QR CODE, CTA & CLOSING    ║ -->
 <!-- ╚══════════════════════════════════════════════╝ -->
-<div class="page bg-dark">
+<div class="page bg-bitcoin-deep">
   <div class="page-inner" style="align-items:center; text-align:center;">
     <div>
       <img class="logo" src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin" style="margin:0 auto;">
     </div>
 
     <div>
-      <h2 class="section-heading-light" style="font-size:11.5px;">Für wen ist das Programm?</h2>
+      <h2 class="section-heading-light" style="font-size:13px;">Für wen ist das Programm?</h2>
       <div style="text-align:left;">
-        <ul class="body-text" style="color:#ddd;">
-          <li>Frauen, die <strong>Verantwortung für ihr Geld</strong> übernehmen wollen</li>
-          <li>Frauen, deren <strong>Mindset sie noch limitiert</strong></li>
-          <li>Frauen, die bereit sind, in ihre finanzielle Zukunft zu investieren</li>
-          <li>Frauen, die einen <strong>klaren Weg</strong> und <strong>ehrliche Community</strong> suchen</li>
+        <ul class="body-text" style="color:#ffe0b2; font-size:10px;">
+          <li style="font-size:10px;">Frauen, die <strong>Verantwortung für ihr Geld</strong> übernehmen wollen</li>
+          <li style="font-size:10px;">Frauen, deren <strong>Mindset sie noch limitiert</strong></li>
+          <li style="font-size:10px;">Frauen, die bereit sind, in ihre finanzielle Zukunft zu investieren</li>
+          <li style="font-size:10px;">Frauen, die einen <strong>klaren Weg</strong> und <strong>ehrliche Community</strong> suchen</li>
         </ul>
       </div>
     </div>
@@ -454,24 +438,24 @@
     <hr class="divider">
 
     <div>
-      <h3 style="font-size:12px; color:#fff; margin-bottom:4px;">Bist du bereit, dein Money Game<br>auf ein neues Level zu heben?</h3>
-      <p class="body-text" style="color:#ccc;">Lass dich 3 Monate lang begleiten, stärken und auf dein nächstes Money Level vorbereiten.</p>
+      <h3 style="font-size:13px; color:#fff; margin-bottom:5px;">Bist du bereit, dein Money Game<br>auf ein neues Level zu heben?</h3>
+      <p class="body-text" style="color:#ffe0b2; font-size:10px;">Lass dich 3 Monate lang begleiten, stärken und auf dein nächstes Money Level vorbereiten.</p>
     </div>
 
     <div>
-      <a class="cta-link" style="font-size:10.5px; padding:6px 18px;" href="https://madame-bitcoin.de/money-mind-mastery/">Zur Anmeldung auf der Landing-Page ★</a>
+      <a class="cta-link" style="font-size:11.5px; padding:7px 20px;" href="https://madame-bitcoin.de/money-mind-mastery/">Zur Anmeldung auf der Landing-Page ★</a>
     </div>
 
     <!-- QR Code -->
     <div style="background:#fff; border-radius:8px; padding:3mm; display:inline-block;">
       <img class="qr-code" src="qr-mmm.svg" alt="QR-Code: madame-bitcoin.de/money-mind-mastery">
     </div>
-    <p style="font-size:8px; color:#fd9800; font-weight:700; margin-top:2px;">Scanne den QR-Code für die Anmeldung</p>
-    <p style="font-size:7.5px; color:#ccc;">madame-bitcoin.de/money-mind-mastery</p>
+    <p style="font-size:9px; color:#FFD54F; font-weight:700; margin-top:2px;">Scanne den QR-Code für die Anmeldung</p>
+    <p style="font-size:8px; color:#ffe0b2;">madame-bitcoin.de/money-mind-mastery</p>
 
     <div>
-      <p style="font-size:6px; color:#777;">Disclaimer: Weiterbildung, keine Finanzberatung. Keine Haftung für individuelle Finanzentscheidungen.</p>
-      <p style="font-size:6px; color:#555;">© 2026 Madame Bitcoin – Evelyn Brock</p>
+      <p style="font-size:6.5px; color:#c68a50;">Disclaimer: Weiterbildung, keine Finanzberatung. Keine Haftung für individuelle Finanzentscheidungen.</p>
+      <p style="font-size:6.5px; color:#a06830;">© 2026 Madame Bitcoin – Evelyn Brock</p>
     </div>
   </div>
 </div>
