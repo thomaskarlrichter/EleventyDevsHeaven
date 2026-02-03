@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money Mind Mastery – Madame Bitcoin</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #222; background: #ffffff; line-height: 1.55;
+    max-width: 430px; margin: 0 auto;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { padding-left: 1.3rem; }
+  li { margin-bottom: 0.4rem; }
+  h1, h2, h3, h4, h5 { line-height: 1.25; }
+
+  /* ── Header ── */
+  .header {
+    background: #1a1a2e; padding: 0.8rem 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .header img { height: 40px; width: auto; }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #3a0d5e 0%, #1a1a2e 100%);
+    padding: 2.5rem 1.2rem 2rem; text-align: center; color: #fff;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.6rem; }
+  .hero h2 { font-size: 1.1rem; font-weight: 400; color: #fdf2ff; }
+
+  /* ── Sections ── */
+  .section { padding: 1.8rem 1.2rem; }
+  .section-alt { background: #faf5ff; }
+  .section-dark { background: #1a1a2e; color: #fff; }
+  .section-purple { background: linear-gradient(135deg, #3a0d5e, #1a1a2e); color: #fff; }
+  .section h2 { font-size: 1.5rem; margin-bottom: 0.8rem; color: #3a0d5e; }
+  .section-dark h2, .section-purple h2 { color: #fd9800; }
+  .section h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+  .section h4 { font-size: 1.05rem; margin-bottom: 0.4rem; font-weight: 600; }
+  .section p { margin-bottom: 0.8rem; }
+
+  /* ── CTA Button → replaced with landing page link ── */
+  .cta-link {
+    display: inline-block; margin: 1rem auto; padding: 0.85rem 1.8rem;
+    background: #fd9800; color: #000; font-weight: 700; font-size: 1rem;
+    border-radius: 50px; text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .cta-link:hover { background: #e88a00; color: #fff; }
+  .cta-center { text-align: center; }
+
+  /* ── Chips / Benefits ── */
+  .benefits { display: flex; flex-direction: column; gap: 0.7rem; margin: 1rem 0; }
+  .chip {
+    background: #fd9800; color: #000; font-weight: 700;
+    border-radius: 50px; padding: 0.55rem 1rem; font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  /* ── Module Cards ── */
+  .module-card {
+    background: #fff; border-radius: 12px; padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-left: 4px solid #fd9800;
+  }
+  .module-card .tag {
+    display: inline-block; background: #3a0d5e; color: #fff;
+    font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.7rem;
+    border-radius: 20px; margin-bottom: 0.5rem;
+  }
+  .module-card h3 { color: #fd9800; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .module-card .subtitle { font-style: italic; color: #555; font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .module-card h4 { font-size: 0.95rem; margin-top: 0.6rem; }
+  .module-card ul { font-size: 0.9rem; }
+
+  /* ── Module Image Cards (overview) ── */
+  .modules-overview { display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0; }
+  .mod-overview-card { text-align: center; }
+  .mod-overview-card img { border-radius: 12px; width: 100%; margin-bottom: 0.5rem; }
+  .mod-overview-card h3 { font-size: 1.1rem; color: #3a0d5e; }
+  .mod-overview-card p { font-size: 0.9rem; color: #555; }
+
+  /* ── Features Grid ── */
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  .feature-item { text-align: center; padding: 0.8rem 0.5rem; }
+  .feature-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+  .feature-item h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .feature-item p { font-size: 0.8rem; color: #666; }
+
+  /* ── About Section ── */
+  .about-photo { width: 100%; border-radius: 16px; margin-bottom: 1rem; }
+  .signature { width: 150px; margin-top: 0.5rem; }
+
+  /* ── Testimonials ── */
+  .testimonial {
+    background: #fff; border-radius: 12px; padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 3px solid #fd9800;
+  }
+  .testimonial .quote { font-style: italic; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .testimonial .author { font-weight: 700; font-size: 0.9rem; }
+  .testimonial .stars { color: #fd9800; font-size: 0.85rem; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid #eee; padding: 0.8rem 0; }
+  .faq-item summary { font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; }
+  .faq-item summary::before { content: "▸ "; color: #fd9800; }
+  .faq-item[open] summary::before { content: "▾ "; }
+  .faq-item p { margin-top: 0.5rem; font-size: 0.9rem; color: #444; }
+
+  /* ── Highlight Box ── */
+  .highlight {
+    background: #fff3e0; border-left: 4px solid #fd9800;
+    padding: 0.8rem 1rem; border-radius: 0 8px 8px 0;
+    margin: 1rem 0; font-weight: 600;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: #1a1a2e; color: #999; padding: 1.5rem 1.2rem;
+    text-align: center; font-size: 0.8rem;
+  }
+  .footer a { color: #fd9800; }
+
+  /* ── Disclaimer ── */
+  .disclaimer { font-size: 0.8rem; color: #777; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER (no mobile menu) ═══ -->
+<header class="header">
+  <img src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin Logo">
+</header>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <h1>Money Mind Mastery</h1>
+  <h2>Dein 3-monatiges Mentoring für ein entspanntes, souveränes Money Life!</h2>
+</div>
+
+<!-- ═══ VALUE PROPOSITION ═══ -->
+<div class="section">
+  <h2>Verändere deine Beziehung zu Geld, baue echtes Finanzwissen auf und werde sicher im Umgang mit Bitcoin</h2>
+  <div class="benefits">
+    <div class="chip">Verstehe endlich, wie Geld &amp; Vermögensaufbau funktionieren</div>
+    <div class="chip">Werde zur selbstbewussten „Money Queen"</div>
+    <div class="chip">Erhalte praxisnahes &amp; sicheres Bitcoin Wissen</div>
+  </div>
+  <div class="cta-center">
+    <a class="cta-link" href="https://madame-bitcoin.de/money-mind-mastery/">Mehr erfahren &amp; anmelden ★</a>
+  </div>
+</div>
+
+<!-- ═══ PAIN POINTS ═══ -->
+<div class="section section-alt">
+  <h3>Geld stresst dich mehr, als dir lieb ist?</h3>
+  <p>Vielleicht erkennst du dich wieder:</p>
+  <ul>
+    <li>Du <strong>denkst viel über Geld nach</strong>, fühlst dich aber trotzdem unsicher.</li>
+    <li>Du merkst, dass <strong>alte Glaubenssätze</strong> („Das ist alles zu kompliziert") dich bremsen.</li>
+    <li>Du hast etwas geerbt oder eine Gehaltserhöhung erhalten und fragst Dich, wie Du das <strong>Geld sinnvoll investieren</strong> kannst.</li>
+    <li>Du spürst: <em>Da geht mehr für mich.</em> Aber dir fehlt ein <strong>klarer, weiblich geführter Weg</strong>.</li>
+    <li>Du hast von Bitcoin gehört aber <strong>zu viel Angst da tiefer einzusteigen</strong>.</li>
+  </ul>
+  <div class="highlight"><strong>Wenn dein Nervensystem schon bei dem Wort „Finanzen" innerlich die Notbremse zieht – bist du hier genau richtig.</strong></div>
+</div>
+
+<!-- ═══ MODULE OVERVIEW with Images ═══ -->
+<div class="section section-purple">
+  <h2>Die Money Mind Mastery</h2>
+  <h4 style="color:#fff;">Dein Weg in 3 Monaten mit 3 Modulen</h4>
+  <div class="modules-overview">
+    <div class="mod-overview-card">
+      <img src="../Bild-Modul-1-Landingpage-MMM.jpg" alt="Modul 1 – Deine Money Story &amp; Identität">
+      <h3 style="color:#fd9800;">Modul 1</h3>
+      <p style="color:#ddd;">Deine Money Story &amp; Identität</p>
+    </div>
+    <div class="mod-overview-card">
+      <img src="../Bild-Modul-2-Landingpage-MMM.jpg" alt="Modul 2 – Financial Empowerment Basics">
+      <h3 style="color:#fd9800;">Modul 2</h3>
+      <p style="color:#ddd;">Financial Empowerment Basics</p>
+    </div>
+    <div class="mod-overview-card">
+      <img src="../Bild-Modul-3-Landingpage-MMM.jpg" alt="Modul 3 – Bitcoin Deep Dive">
+      <h3 style="color:#fd9800;">Modul 3</h3>
+      <p style="color:#ddd;">Bitcoin Deep Dive</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DESCRIPTION ═══ -->
+<div class="section">
+  <h3><strong>Money Mind Mastery</strong> ist ein 3-monatiges Online-Mentoring für Frauen, das Money Mindset, finanzielle Bildung und Bitcoin-Knowhow verbindet.</h3>
+  <p>Statt trockener Theorie gibt es:</p>
+  <ul>
+    <li>tief gehende Innenarbeit</li>
+    <li>verständlich erklärte Finanz- und Bitcoin-Inhalte</li>
+    <li>konkrete Umsetzungsschritte</li>
+    <li>eine stärkende Community aus Frauen, die das gleiche wollen wie du:<br><strong>Mehr Klarheit, mehr Sicherheit, mehr Freiheit.</strong></li>
+  </ul>
+</div>
+
+<!-- ═══ ABOUT EVELYN ═══ -->
+<div class="section section-alt">
+  <img class="about-photo" src="../Foto-gelbes-kleid-mit-hintergrund.png" alt="Evelyn Brock – Madame Bitcoin">
+  <h2>Mein Name ist Evelyn Brock</h2>
+  <p>Mit meiner fast 30-jährigen Erfahrung als <strong>Betriebswirtin und Supervisorin</strong> war es schon immer mein Anliegen, Gründerinnen und Unternehmerinnen zu Fragen des <strong>Money Mindsets</strong> zu beraten.</p>
+  <p>Ich bin 2016 zum ersten Mal mit Bitcoin in Berührung gekommen und habe 2019 begonnen zu investieren. Hierfür musste ich auch an meiner Haltung zu Geld arbeiten, sonst wäre ich langfristig nicht handlungsfähig geworden. Eine Erfahrung, die ich gerne weitergebe. Mir ist es gelungen, mein Investment innerhalb von 5 Jahren zu vervierfachen. Was für ein Wahnsinns <strong>Wertspeicher</strong> und was für ein Erfolg!</p>
+  <p>Gerne gebe ich mein Wissen weiter, damit Frauen an Ihrem Verhältnis und ihrer Einstellung zu Geld etwas verändern können. Und ihr eigenes Kapital diversifiziert in einem Top-Wertspeicher wie Bitcoin anlegen und vermehren können. Daher bin ich im <strong>Vorstand des Bitcoin Bundesverband</strong>, um auch hier die Position von Frauen zu stärken.</p>
+  <img class="signature" src="../Unterschrift-2.png" alt="Unterschrift Evelyn Brock">
+</div>
+
+<!-- ═══ RESULTS ═══ -->
+<div class="section">
+  <h3>Was du nach 3 Monaten sagen kannst</h3>
+  <p>Nach dem Programm kannst du:</p>
+  <ul>
+    <li>deine <strong>persönliche Money Story verstehen</strong> und weißt, wo deine Blockaden herkommen</li>
+    <li><strong>limitierende Glaubenssätze erkennen und transformieren</strong></li>
+    <li>deine <strong>finanzielle Situation klar sehen</strong> – ohne Drama, ohne Wegschauen</li>
+    <li>wissen, wie Geld, Vermögensaufbau &amp; Ziele sinnvoll zusammenspielen</li>
+    <li>verstehen, was Bitcoin ist, warum es relevant ist – und <strong>wie du damit sicher umgehst</strong></li>
+    <li>einen <strong>konkreten Finanz- und Bitcoin-Plan</strong> in der Hand halten, der zu dir passt</li>
+  </ul>
+  <div class="highlight"><strong>Dein Investment in diese Weiterbildung wird sich durch deine Arbeit am Money Mindset sowie Dein Finanz- und Bitcoin Know-how vielfach auszahlen!</strong></div>
+</div>
+
+<!-- ═══ FEATURES ═══ -->
+<div class="section section-alt">
+  <h3>Was in der Money Mind Mastery enthalten ist</h3>
+  <div class="features">
+    <div class="feature-item">
+      <div class="feature-icon">💡</div>
+      <h4>Live Sessions</h4>
+      <p>Raum für Input, Reflexion &amp; Fragen (2-wöchentlich ca. 90 Min)</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🎥</div>
+      <h4>1:1 Calls</h4>
+      <p>Persönliche Begleitung nur für Dich</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📚</div>
+      <h4>Video-Bibliothek</h4>
+      <p>Bis zu 50 Videos in deinem Tempo</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📋</div>
+      <h4>Vorlagen &amp; Workbooks</h4>
+      <p>Zur Vertiefung und Integration</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📝</div>
+      <h4>Schritt-für-Schritt Anleitungen</h4>
+      <p>Damit Du ins Handeln kommst</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">👩‍👩‍👧‍👧</div>
+      <h4>Community-Austausch</h4>
+      <p>Du bist nicht allein auf dem Weg</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CTA ═══ -->
+<div class="section section-purple" style="text-align:center;">
+  <a class="cta-link" href="https://madame-bitcoin.de/money-mind-mastery/">Mehr erfahren &amp; anmelden ★</a>
+</div>
+
+<!-- ═══ MODULE DETAILS ═══ -->
+<div class="section">
+  <h3>Dein Weg in 3 Monaten – die 3 Module im Detail</h3>
+
+  <div class="module-card">
+    <span class="tag">Modul 1</span>
+    <h3>Deine Money Story &amp; Identität</h3>
+    <div class="subtitle">Glaubenssatzarbeit, innere Blockaden, Identität als Money Queen, Geld Vision Board</div>
+    <h4>Ziel:</h4>
+    <p>Du verstehst deine persönliche Geldgeschichte und löst dysfunktionale Glaubenssätze. Du legst die Basis für deine neue Financial Identity als selbstbestimmte Frau.</p>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Die eigene Money Story entschlüsseln</li>
+      <li>Glaubenssatzanalyse &amp; Neuformulierung</li>
+      <li>Identitätsarbeit: Wer bin ich als Money Queen?</li>
+      <li>Dein persönliches Geld Vision Board</li>
+      <li>Fülle Mindset vs. Mangel Mindset</li>
+      <li>Erfolgsroutinen für Money Queens</li>
+    </ul>
+  </div>
+
+  <div class="module-card">
+    <span class="tag">Modul 2</span>
+    <h3>Financial Empowerment Basics</h3>
+    <div class="subtitle">Finanzielle Bildung, Verständnis von Geldsystemen &amp; Vermögensaufbau</div>
+    <h4>Ziel:</h4>
+    <p>Du baust dir eine solide, verständliche finanzielle Grundbildung auf und verstehst, wie du ein resilientes Finanzfundament aufbauen kannst.</p>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Wie Geld funktioniert – Basics der Finanzwelt</li>
+      <li>Einführung in den Vermögensaufbau</li>
+      <li>Ist-Analyse deiner finanziellen Situation</li>
+      <li>Finanzielle Ziele &amp; Strategien</li>
+    </ul>
+  </div>
+
+  <div class="module-card">
+    <span class="tag">Modul 3</span>
+    <h3>Bitcoin Deep Dive</h3>
+    <div class="subtitle">Verständnis, Sicherheit, Anwendung – dein Einstieg in Bitcoin</div>
+    <h4>Ziel:</h4>
+    <p>Du gewinnst ein tiefes, souveränes Verständnis von Bitcoin – ohne Technik-Overload, dafür praxisnah, sicherheitsorientiert und in deinem Tempo.</p>
+    <h4>Inhalte:</h4>
+    <ul>
+      <li>Was ist Bitcoin – und was macht ihn so besonders?</li>
+      <li>Die Technik hinter Bitcoin – einfach erklärt</li>
+      <li>Bitcoin sicher kaufen &amp; verwahren (Wallets, Sicherheit)</li>
+      <li>Strategien &amp; Risikomanagement</li>
+      <li>Your Bitcoin &amp; Investment Roadmap</li>
+      <li>Integration &amp; Abschluss – dein finaler Money Mastery Plan</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<div class="section section-alt">
+  <h2>Kundinnenstimmen</h2>
+
+  <div class="testimonial">
+    <div class="quote">"Bitcoin ist doch viel Neues und es erfordert Mut, in eine neue Welt einzutreten für mich. Dafür danke ich dir. Ohne dich hätte ich diesen Schritt nicht gemacht."</div>
+    <div class="author">Kerstin S.</div>
+    <div class="stars">★★★★★</div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">„Die Weiterbildung war sehr inspirierend. Ich bin total froh, dass ich mich dafür entschieden habe. Du bist ein gutes Role Model, weil Du lebenserfahren und deswegen auch sehr vertrauenswürdig bist."</div>
+    <div class="author">Christel S.</div>
+    <div class="stars">★★★★★</div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">„Die Weiterbildung ist sehr gut aufgebaut, sehr informativ und gut verständlich. Du bist bei Fragen auch in die Tiefe gegangen und hast einen generellen Überblick gegeben. Ich habe für mich sehr viel mitgenommen, obwohl ich schon Vorerfahrungen hatte."</div>
+    <div class="author">Eirian S.</div>
+    <div class="stars">★★★★★</div>
+  </div>
+
+  <div class="testimonial">
+    <div class="quote">"Vielen, lieben Dank. Ich bin sehr glücklich, dass ich die Weiterbildung bei Dir gemacht habe. Du machst das so schön und authentisch. Ich konnte viel mitnehmen."</div>
+    <div class="author">Sabine B.</div>
+    <div class="stars">★★★★★</div>
+  </div>
+</div>
+
+<!-- ═══ FOR WHOM ═══ -->
+<div class="section">
+  <h3>Für wen ist das Programm?</h3>
+  <p>Das Money Mind Mastery Programm ist für dich, wenn du:</p>
+  <ul>
+    <li>eine Frau bist, die <strong>endlich aktiv Verantwortung für ihr Geld</strong> übernehmen will</li>
+    <li>spürst, dass dein <strong>Mindset dich aktuell noch limitiert</strong></li>
+    <li>keine Lust mehr auf „Ich verstehe das eh nicht" hast</li>
+    <li>bereit bist, in dich, dein Wissen und deine finanzielle Zukunft zu investieren</li>
+    <li>einen <strong>klar strukturierten Weg</strong>, liebevolle Begleitung und eine <strong>ehrliche Community</strong> suchst</li>
+  </ul>
+  <p style="color:#fd9800;"><strong>Es ist nicht für dich, wenn du:</strong></p>
+  <ul>
+    <li>schnelle „reich über Nacht"-Versprechen suchst</li>
+    <li>nicht bereit bist, hinzuschauen, zu reflektieren und umzusetzen</li>
+    <li>Verantwortung lieber abgibst, statt sie zu dir zurückzuholen</li>
+  </ul>
+</div>
+
+<!-- ═══ REGISTRATION FLOW ═══ -->
+<div class="section section-alt">
+  <h3>So läuft die Registrierung ab</h3>
+  <ul>
+    <li>Du besuchst die Landing-Page und informierst dich über alle Details</li>
+    <li>Danach meldest du dich zur <strong>Money Mind Mastery</strong> an</li>
+    <li>Du erhältst eine <strong>Bestätigung &amp; alle Infos per E-Mail</strong> (Zugang zu Live-Terminen, WhatsApp-Gruppe, Video-Bibliothek).</li>
+    <li>Wir starten gemeinsam zum nächsten <strong>offiziellen Programmbeginn</strong>.</li>
+    <li>Die <strong>Live-Sessions</strong> finden online per Zoom statt (2-wöchentlich à 90 Min).</li>
+    <li>Deine <strong>1:1 Calls</strong> vereinbaren wir individuell.</li>
+    <li>Du arbeitest mit der <strong>Video-Bibliothek</strong>, Journaling-Vorlagen, Workbooks und Homework zwischen den Sessions.</li>
+    <li>Über die <strong>WhatsApp-Gruppe</strong> bleibst du verbunden, bekommst Impulse, Motivation &amp; Austausch.</li>
+  </ul>
+  <div class="cta-center" style="margin-top:1rem;">
+    <a class="cta-link" href="https://madame-bitcoin.de/money-mind-mastery/">Zur Landing-Page &amp; Anmeldung ★</a>
+  </div>
+</div>
+
+<!-- ═══ FAQ ═══ -->
+<div class="section">
+  <h2>F.A.Q.</h2>
+  <h5 style="color:#888; margin-bottom:1rem;">Häufig gestellte Fragen</h5>
+
+  <details class="faq-item">
+    <summary>Warum ist das Thema Money Mindset so wichtig?</summary>
+    <p>Meine Erfahrung als Beraterin und Supervisorin ist, dass viele Frauen eine schlechte Haltung zum Thema Geld haben und es nicht schaffen, sich diesem zentralen Bereich überhaupt zu öffnen. Unsicherheiten, Ängste und blockierende Glaubenssätze führen dazu, dass sie nicht ins Handeln kommen. Eine reine Wissensvermittlung löst das tieferliegende Problem leider nicht. Daher ist es so wichtig, sich das eigene Money Mindset, seine Ursprünge und die blockierenden Glaubenssätze anzuschauen.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Warum ist ein Infogespräch notwendig?</summary>
+    <p>Uns ist es wichtig, dass Dein Weiterbildungsbedarf und unser Angebot wirklich passen. Das klären wir in einem 30-minütigen Infogespräch und erst danach kann eine Buchung der Weiterbildung erfolgen.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Wie viel Zeit sollte ich pro Woche einplanen?</summary>
+    <p>Rechne mit ca. 2–3 Stunden pro Woche für die Live-Sessions, Videos, Reflexion und Umsetzung.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Wann finden die Live-Sessions statt?</summary>
+    <p>Die Live-Sessions finden alle 2 Wochen entweder Samstags oder Sonntags von 11–12.30 Uhr statt. Wenn Du an dem Termin nicht kannst, erhältst Du eine Aufzeichnung.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Brauche ich Vorkenntnisse zu Finanzen oder Bitcoin?</summary>
+    <p>Nein, das Programm ist so aufgebaut, dass Du auch als Einsteigerin sicher mitkommst. Wenn Du schon Vorkenntnisse hast, umso besser.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Ist es nicht schon zu spät, um in Bitcoin zu investieren?</summary>
+    <p>Nein, obwohl der Preis in den letzten Jahren stark gestiegen ist, sind wir noch relativ früh in der Entwicklung dieser neuen Technologie. Bitcoin wird voraussichtlich trotz Kursschwankungen weiter steigen.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Ist das Programm nur für Selbstständige und Unternehmerinnen?</summary>
+    <p>Nein, das Programm ist für alle Frauen, die ihr Money Mindset und ihre finanzielle Situation bewusst gestalten wollen – angestellt, selbstständig oder in der Übergangsphase.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Warum sind die Kundinnenstimmen anonymisiert?</summary>
+    <p>Aussagen zu Finanzen und in welchem Asset man sein Vermögen aufbewahrt sind sehr sensible Daten. Bei Kryptowährungen sind leider viele Betrüger unterwegs, daher empfiehlt es sich, keine persönlichen Daten weiterzugeben.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Dürfen Männer auch an den Weiterbildungen teilnehmen?</summary>
+    <p>Ja, Männer sind herzlich eingeladen. Die primäre Zielgruppe sind jedoch Frauen, und das wird in der Ansprache und den Themenschwerpunkten deutlich.</p>
+  </details>
+</div>
+
+<!-- ═══ FINAL CTA ═══ -->
+<div class="section section-purple" style="text-align:center;">
+  <h3 style="color:#fff; margin-bottom:0.8rem;">Bist du bereit, dein Money Game auf ein neues Level zu heben?</h3>
+  <p style="color:#ddd;">Wenn du innerlich schon ein „Ja" spürst, dann ist das deine Einladung: Du musst nicht mehr alles alleine herausfinden. Lass dich 3 Monate lang begleiten, stärken und fachlich wie emotional auf dein nächstes Money Level vorbereiten.</p>
+  <a class="cta-link" href="https://madame-bitcoin.de/money-mind-mastery/">Zur Landing-Page &amp; Anmeldung ★</a>
+</div>
+
+<!-- ═══ DISCLAIMER ═══ -->
+<div class="section">
+  <h4>Disclaimer</h4>
+  <p class="disclaimer">Meine Programme sind Weiterbildungen und keine Finanzberatung. Mir geht es darum, den Teilnehmerinnen zu einer besseren Haltung zu Geld zu verhelfen, ihnen Finanzbildung zu vermitteln und die komplexen Zusammenhänge von Bitcoin zu erläutern. Damit sie sich selbst eine Meinung bilden können und eine solide Basis für weitere Entscheidungen erhalten. Ich übernehme keine Haftung für individuell getroffene Finanzentscheidungen.</p>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <img src="../LogoMadamBitcoin-mehr-Rand-1.png" alt="Madame Bitcoin" style="height:30px; margin:0 auto 0.5rem;">
+  <p>&copy; 2026 Madame Bitcoin – Evelyn Brock</p>
+  <p><a href="https://madame-bitcoin.de/money-mind-mastery/">madame-bitcoin.de/money-mind-mastery</a></p>
+</footer>
+
+</body>
+</html>
