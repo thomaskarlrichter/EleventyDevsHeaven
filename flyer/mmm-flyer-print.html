@@ -4,15 +4,20 @@
 <meta charset="UTF-8">
 <title>Money Mind Mastery – Flyer DIN Lang</title>
 <style>
-  /* ── Page Setup: DIN Lang 105mm × 210mm, NO margin ── */
-  @page { size: 105mm 210mm; margin: 0; }
+  /* ── Page Setup: Flyeralarm DIN Lang
+       Endformat:   98mm × 210mm
+       Beschnitt:   1mm pro Seite
+       Datenformat: 100mm × 212mm
+       Sicherheitsabstand: 4mm vom Endformat-Rand = 5mm vom Datenformat-Rand
+  ── */
+  @page { size: 100mm 212mm; margin: 0; }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size:15.6px; }
   body {
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: #222; line-height: 1.45;
-    width: 105mm; margin: 0;
+    width: 100mm; margin: 0;
   }
   img { max-width: 100%; height: auto; display: block; }
   ul { padding-left: 1.2em; margin: 0; }
@@ -23,7 +28,7 @@
 
   /* ── Each page: FULL BLEED ── */
   .page {
-    width: 105mm; height: 210mm;
+    width: 100mm; height: 212mm;
     page-break-after: always;
     page-break-inside: avoid;
     overflow: hidden;
@@ -38,7 +43,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 4mm 5mm;
+    padding: 5mm 5mm;
   }
 
   /* ── COLOR SCHEME ──
